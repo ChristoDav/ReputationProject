@@ -7,10 +7,14 @@ public enum Status {
     POSITIVE("Positive"),
     VERY_POSITIVE("Very Positive");
 
-    public final String statusLabel;
+    private final String statusLabel;
 
     private Status(String label) {
         this.statusLabel = label;
+    }
+
+    public String toString() {
+        return statusLabel;
     }
 
 }

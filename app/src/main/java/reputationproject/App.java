@@ -1,7 +1,5 @@
 package reputationproject;
 
-import java.net.URL;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +13,7 @@ public class App extends Application {
         // Initialise AppState etc
         // ...
         // Show StartMenu
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/start_menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home_menu.fxml"));
         Parent root = loader.load();
 
         stage.setScene(new Scene(root));

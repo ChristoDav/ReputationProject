@@ -2,6 +2,7 @@ package reputationproject.model.actor;
 
 import java.util.ArrayList;
 
+import reputationproject.model.Interaction;
 import reputationproject.model.Relationship;
 
 public class PlayerActor extends Actor {
@@ -12,8 +13,8 @@ public class PlayerActor extends Actor {
         this.playerName = playerName;
     }
 
-    public PlayerActor(String playerName, Character character, ArrayList<Relationship> relationships) {
-        super(character, relationships);
+    public PlayerActor(String playerName, Character character, ArrayList<Relationship> relationships, ArrayList<Interaction> history) {
+        super(character, relationships, history);
         this.playerName = playerName;
     }
 

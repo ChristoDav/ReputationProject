@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
@@ -13,7 +16,7 @@
    <children>
       <Pane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="25.0" prefWidth="47.0" text="Menu" />
+            <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleSidebar" prefHeight="25.0" prefWidth="47.0" text="Menu" />
             <Text layoutX="75.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reputation Project">
                <font>
                   <Font size="46.0" />
@@ -30,8 +33,11 @@
                </children>
             </TextFlow>
          </children>
+         <effect>
+            <GaussianBlur />
+         </effect>
       </Pane>
-      <Pane fx:id="overlay" prefHeight="200.0" prefWidth="200.0" visible="false" />
+      <Pane fx:id="sidebarOverlay" mouseTransparent="true" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #292525;" />
       <VBox fx:id="sidebar" alignment="CENTER_LEFT" maxWidth="200.0" prefWidth="200.0" style="-fx-background-color: #2c3e50;" translateX="-200.0" StackPane.alignment="CENTER_LEFT">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="200.0">
@@ -41,7 +47,7 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleSidebar" prefHeight="25.0" prefWidth="47.0" text="&lt;-" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSidebar" prefHeight="25.0" prefWidth="47.0" text="&lt;-" />
                </children>
             </HBox>
             <Pane prefHeight="49.0" prefWidth="200.0" />
@@ -51,9 +57,36 @@
             <Pane prefHeight="50.0" prefWidth="200.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="200.0" text="Settings" />
             <Pane prefHeight="282.0" prefWidth="200.0" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleReturnToWorldMenu" prefHeight="50.0" prefWidth="200.0" text="Return to World Menu" />
+            <Pane prefHeight="50.0" prefWidth="200.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleExit" prefHeight="50.0" prefWidth="200.0" text="Exit" />
             <Pane prefHeight="50.0" prefWidth="200.0" />
          </children>
       </VBox>
+      <StackPane fx:id="startMenuStackPane">
+         <children>
+            <Pane fx:id="startMenuOverlay" prefHeight="200.0" prefWidth="200.0" />
+            <SplitPane fx:id="startMenu" dividerPositions="0.29797979797979796" maxHeight="488.0" maxWidth="650.0" prefHeight="488.0" prefWidth="650.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="190.0">
+                     <children>
+                        <VBox prefHeight="486.0" prefWidth="190.0">
+                           <children>
+                              <Pane maxHeight="50.0" maxWidth="190.0" prefHeight="50.0" prefWidth="190.0" />
+                              <Button maxHeight="50.0" maxWidth="190.0" mnemonicParsing="false" onAction="#handleStartNewWorld" prefHeight="75.0" prefWidth="190.0" text="Start New World" />
+                              <Pane maxHeight="50.0" maxWidth="190.0" prefHeight="50.0" prefWidth="190.0" />
+                              <Button maxHeight="50.0" maxWidth="190.0" mnemonicParsing="false" onAction="#handleOpenExistingWorld" prefHeight="75.0" prefWidth="190.0" text="Open Existing World" />
+                              <Pane maxHeight="50.0" maxWidth="190.0" prefHeight="50.0" prefWidth="190.0" />
+                              <Button maxHeight="50.0" maxWidth="190.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="75.0" prefWidth="190.0" text="Exit" />
+                              <Pane maxHeight="50.0" maxWidth="190.0" prefHeight="50.0" prefWidth="190.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+              </items>
+            </SplitPane>
+         </children>
+      </StackPane>
    </children>
 </StackPane>

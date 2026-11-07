@@ -1,12 +1,12 @@
-## What is ReputationProject
+## What is WorldBuilderProject
 An assistant desktop application to help world builders keep track of all the moving parts.
 When expanding a world, it's important to remember what's already there to avoid conflicts or discrepancies in the future.
 This application should centralise as much of that information as possible to help make that easier, while also making it possible to develop the world purely within the app.<br>
 
-## Why "ReputationProject"
+## A Continuation of "ReputationProject"
 ReputationProject began as a console-based Java project in 2022 as a way to reinforce my understanding of the language and practice introducing data serialisation.
 It's original scope was to simply keep track of the "reputation" an actor would have of other actors in the world, with the adding of "interactions" between actors that carried a reputation value changes and a description of why the change occured. <br>
-I wanted to develop my understanding of full-stack development, and as such, it feels fitting to pick up ReputationProject again, but with an expanded scope.
+I wanted to develop my understanding of full-stack development, and as such, it feels fitting to pick up ReputationProject, expand its scope, and continue it as "WorldBuilderProject".
 
 ## Planned Features:
 #1 A starting "World Menu" for starting a new world, opening an existing world, and exiting the application. <br>

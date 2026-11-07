@@ -1,0 +1,19 @@
+Text {
+    -fx-fill: -app-text;
+}
+
+.sidebar {
+    -fx-background-color: -app-sidebar;
+}
+
+.sidebar-title {
+    -fx-fill: -app-sidebar-text;
+}
+
+.error-text {
+    -fx-fill: -app-error-text;
+}
+
+.danger-button {
+    -fx-base: -app-danger;
+}

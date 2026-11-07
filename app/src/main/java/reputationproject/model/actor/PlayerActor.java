@@ -2,6 +2,7 @@ package reputationproject.model.actor;
 
 import java.util.ArrayList;
 
+import reputationproject.model.Character;
 import reputationproject.model.Interaction;
 import reputationproject.model.Relationship;
 

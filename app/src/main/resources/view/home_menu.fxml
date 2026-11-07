@@ -1,48 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reputationproject.controller.HomeMenuController">
    <children>
-      <Pane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleSidebar" prefHeight="25.0" prefWidth="47.0" text="Menu" />
-            <Text layoutX="75.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reputation Project">
-               <font>
-                  <Font size="46.0" />
-               </font>
-            </Text>
-            <Text layoutX="87.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to the temporary home page" x="15.0" y="15.0" />
-            <TextFlow layoutX="20.0" layoutY="103.0" prefHeight="592.0" prefWidth="960.0">
+      <BorderPane fx:id="mainContent" prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <HBox alignment="TOP_LEFT" spacing="14.0" BorderPane.alignment="CENTER">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The home menu will be some central hub for app functions. The app will automatically read a save state stored somewhere. Export and import functions will be in a settings menu.">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
+                  <Button mnemonicParsing="false" onAction="#handleSidebar" prefHeight="25.0" prefWidth="47.0" text="Menu">
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin>
+                  </Button>
+                  <VBox>
+                     <children>
+                        <Text fx:id="pageTitle" strokeType="OUTSIDE" strokeWidth="0.0" text="Reputation Project">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="pageSubtitle" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                  </VBox>
                </children>
-            </TextFlow>
-         </children>
+               <padding>
+                  <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+               </padding>
+            </HBox>
+         </top>
+         <center>
+            <StackPane BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="homePage" spacing="20.0">
+                     <children>
+                        <VBox HBox.hgrow="ALWAYS">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="App Functions">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Pane prefHeight="14.0" prefWidth="200.0" />
+                              <FlowPane hgap="14.0" vgap="14.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleActors" prefHeight="80.0" prefWidth="160.0" text="Actors" />
+                                    <Button mnemonicParsing="false" onAction="#handleSettings" prefHeight="80.0" prefWidth="160.0" text="Settings" />
+                                    <Button disable="true" mnemonicParsing="false" prefHeight="80.0" prefWidth="160.0" text="Interactions" />
+                                    <Button disable="true" mnemonicParsing="false" prefHeight="80.0" prefWidth="160.0" text="World" />
+                                    <Button disable="true" mnemonicParsing="false" prefHeight="80.0" prefWidth="160.0" text="Events" />
+                                    <Button disable="true" mnemonicParsing="false" prefHeight="80.0" prefWidth="160.0" text="Timeline" />
+                                 </children>
+                              </FlowPane>
+                           </children>
+                        </VBox>
+                        <VBox minWidth="200.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Recently Accessed">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Pane prefHeight="14.0" prefWidth="200.0" />
+                              <VBox fx:id="recentPagesList" spacing="10.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="6.0" />
+                     </padding>
+                  </HBox>
+                  <fx:include fx:id="actorsPage" source="actors_page.fxml" />
+                  <fx:include fx:id="settingsPage" source="settings_menu.fxml" />
+               </children>
+            </StackPane>
+         </center>
          <effect>
             <GaussianBlur />
          </effect>
-      </Pane>
-      <Pane fx:id="sidebarOverlay" mouseTransparent="true" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #292525;" />
-      <VBox fx:id="sidebar" alignment="CENTER_LEFT" maxWidth="200.0" prefWidth="200.0" style="-fx-background-color: #2c3e50;" translateX="-200.0" StackPane.alignment="CENTER_LEFT">
+      </BorderPane>
+      <Pane fx:id="sidebarOverlay" mouseTransparent="true" onMouseClicked="#handleSidebar" opacity="0.5" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #292525;" />
+      <VBox fx:id="sidebar" alignment="CENTER_LEFT" maxWidth="200.0" prefWidth="200.0" styleClass="sidebar" translateX="-200.0" StackPane.alignment="CENTER_LEFT">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="25.0" prefWidth="200.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" wrappingWidth="136.94921875">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sidebar-title" text="Menu" wrappingWidth="136.94921875">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -51,12 +108,12 @@
                </children>
             </HBox>
             <Pane prefHeight="49.0" prefWidth="200.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" text="Home" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleHome" prefHeight="50.0" prefWidth="200.0" text="Home" />
             <Pane prefHeight="50.0" prefWidth="200.0" />
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleCharacters" prefHeight="50.0" prefWidth="200.0" text="Characters" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleActors" prefHeight="50.0" prefWidth="200.0" text="Actors" />
             <Pane prefHeight="50.0" prefWidth="200.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSettings" prefHeight="50.0" prefWidth="200.0" text="Settings" />
-            <Pane prefHeight="282.0" prefWidth="200.0" />
+            <Pane prefHeight="282.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleReturnToWorldMenu" prefHeight="50.0" prefWidth="200.0" text="Return to World Menu" />
             <Pane prefHeight="50.0" prefWidth="200.0" />
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleExit" prefHeight="50.0" prefWidth="200.0" text="Exit" />
@@ -83,7 +140,41 @@
                         </VBox>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <VBox fx:id="newWorldPanel" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start New World">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Pane prefHeight="20.0" prefWidth="200.0" />
+                              <TextField fx:id="newWorldName" onAction="#handleCreateWorld" promptText="World name" />
+                              <Pane prefHeight="20.0" prefWidth="200.0" />
+                              <Button mnemonicParsing="false" onAction="#handleCreateWorld" prefHeight="40.0" prefWidth="190.0" text="Create World" />
+                           </children>
+                        </VBox>
+                        <VBox fx:id="openWorldPanel" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Open Existing World">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Pane prefHeight="20.0" prefWidth="200.0" />
+                              <ListView fx:id="worldList" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <placeholder>
+                                    <Label text="No saved worlds yet" />
+                                 </placeholder>
+                              </ListView>
+                              <Pane prefHeight="20.0" prefWidth="200.0" />
+                              <Button fx:id="openWorldButton" mnemonicParsing="false" onAction="#handleOpenWorld" prefHeight="40.0" prefWidth="190.0" text="Open World" />
+                           </children>
+                        </VBox>
+                        <Text fx:id="worldMenuMessage" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" wrappingWidth="400.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="20.0" />
+                     </children>
+                  </AnchorPane>
               </items>
             </SplitPane>
          </children>

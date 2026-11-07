@@ -1,0 +1,11 @@
+.root, .dialog-pane {
+    -fx-base: #3a3d40;
+    -fx-background: #222426;
+    -fx-control-inner-background: #2d2f31;
+    -fx-selection-bar-non-focused: #4a4e52;
+    -app-text: #e8eaed;
+    -app-sidebar: #1a252f;
+    -app-sidebar-text: #ecf0f1;
+    -app-error-text: #f2b8b5;
+    -app-danger: #a93226;
+}

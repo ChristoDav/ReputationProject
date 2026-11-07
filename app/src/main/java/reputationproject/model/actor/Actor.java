@@ -1,6 +1,7 @@
 package reputationproject.model.actor;
 
 import java.util.ArrayList;
+import reputationproject.model.Character;
 import reputationproject.model.Relationship;
 import reputationproject.model.Interaction;
 
@@ -19,7 +20,7 @@ public class Actor {
         this.character = character;
         this.relationships = relationships;
         if (history == null) {
-            history = new ArrayList<>();
+            this.history = new ArrayList<>();
         } else {
             this.history = history;
         }

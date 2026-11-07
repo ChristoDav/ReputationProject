@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="settingsMenu" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reputationproject.controller.SettingsMenuController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Display">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Pane prefHeight="14.0" prefWidth="200.0" />
+      <HBox alignment="CENTER_LEFT" spacing="14.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Resolution" wrappingWidth="100.0" />
+            <ComboBox fx:id="resolutionChoice" onAction="#handleResolution" prefHeight="30.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+      <Pane prefHeight="10.0" prefWidth="200.0" />
+      <HBox alignment="CENTER_LEFT" spacing="14.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Theme" wrappingWidth="100.0" />
+            <ComboBox fx:id="themeChoice" onAction="#handleTheme" onHidden="#handleTheme" prefHeight="30.0" prefWidth="200.0" />
+         </children>
+      </HBox>
+      <Pane prefHeight="30.0" prefWidth="200.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Database">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Pane prefHeight="14.0" prefWidth="200.0" />
+      <HBox spacing="14.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleExport" prefHeight="40.0" prefWidth="190.0" text="Export Database" />
+            <Button mnemonicParsing="false" onAction="#handleImport" prefHeight="40.0" prefWidth="190.0" text="Import Database" />
+         </children>
+      </HBox>
+      <Pane prefHeight="30.0" prefWidth="200.0" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wipe Database">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Pane prefHeight="14.0" prefWidth="200.0" />
+      <Button mnemonicParsing="false" onAction="#handleWipe" prefHeight="40.0" prefWidth="190.0" styleClass="danger-button" text="Wipe Database" />
+      <Pane prefHeight="20.0" prefWidth="200.0" />
+      <Text fx:id="statusMessage" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="700.0" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="6.0" />
+   </padding>
+</VBox>

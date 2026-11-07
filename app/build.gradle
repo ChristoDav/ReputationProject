@@ -25,6 +25,7 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+    implementation libs.sqlite.jdbc
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
@@ -42,6 +43,9 @@ javafx {
 application {
     // Define the main class for the application.
     mainClass = 'reputationproject.App'
+
+    // The SQLite driver loads a native library, which Java otherwise warns about.
+    applicationDefaultJvmArgs = ['--enable-native-access=ALL-UNNAMED']
 }
 
 tasks.named('test') {

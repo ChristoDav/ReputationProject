@@ -1,0 +1,7 @@
+.root, .dialog-pane {
+    -app-text: #1f1f1f;
+    -app-sidebar: #2c3e50;
+    -app-sidebar-text: #ecf0f1;
+    -app-error-text: #b3261e;
+    -app-danger: #c0392b;
+}
